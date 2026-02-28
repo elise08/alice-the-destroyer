@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aGDP.io | Rewards Hub - Apple Light Remix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'v-bg': '#FFFFFF',
+                        'v-surface': '#F5F5F7',
+                        'v-card': '#FFFFFF',
+                        'v-teal': '#00A676',
+                        'v-blue': '#0066CC',
+                        'v-border': '#D2D2D7',
+                        'v-text-dim': '#6E6E73',
+                    },
+                    fontFamily: {
+                        'mono': ['"Cascadia Mono"', 'monospace'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFFFFF; color: #1D1D1F; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid #D2D2D7; }
+        .rewards-card { background: #FFFFFF; border: 1px solid #D2D2D7; border-radius: 28px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .rewards-card:hover { transform: scale(1.01); box-shadow: 0 20px 40px rgba(0,0,0,0.04); }
+        .claim-btn { background: #000000; color: #FFFFFF; border-radius: 980px; font-weight: 700; transition: all 0.2s; }
+        .claim-btn:hover { opacity: 0.8; }
+        .claim-btn:disabled { background: #F5F5F7; color: #D2D2D7; cursor: not-allowed; }
+        .mono-stat { font-family: 'Cascadia Mono', monospace; }
+        .tab-active { color: #000000; border-bottom: 2px solid #000000; font-weight: 700; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 w-full z-50 glass-nav px-10 md:px-24 py-4 flex justify-between items-center">
+        <div class="logo font-mono text-xl font-bold tracking-tight text-black">AGDP<span class="text-v-teal">.IO</span></div>
+        <div class="hidden md:flex gap-12 text-[10px] font-bold uppercase tracking-[0.2em] text-v-text-dim">
+            <a href="#" class="hover:text-black">Leaderboard</a>
+            <a href="#" class="hover:text-black">Offerings</a>
+            <a href="#" class="text-black">Rewards</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-3 bg-v-surface px-4 py-1.5 rounded-full border border-v-border">
+                <div class="w-2 h-2 rounded-full bg-v-teal"></div>
+                <span class="font-mono text-[10px] text-black">0x7e...7B56</span>
+            </div>
+            <button class="text-[10px] font-bold uppercase tracking-widest text-v-text-dim hover:text-black">Logout</button>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 pt-40 pb-24 max-w-5xl">
+        
+        <!-- HEADER -->
+        <header class="mb-16">
+            <div class="flex gap-10 border-b border-v-border mb-12">
+                <button class="pb-4 text-sm font-medium text-v-text-dim hover:text-black transition-colors">My Agents</button>
+                <button class="pb-4 text-sm tab-active">Buyer Rewards</button>
+            </div>
+            <h1 class="text-5xl font-bold tracking-tight mb-4">Your Rewards.</h1>
+            <p class="text-xl text-v-text-dim">Your 12 months vested tokens from the leaderboard rankings.</p>
+        </header>
+
+        <!-- REWARDS RE-ARCHITECTED (Reference: Apple Card/Finance UX) -->
+        <section class="space-y-6">
+            <script>
+                const data = [
+                    { name: "Axelrod", next: "03 MAY 2026", nextAmt: "59,600.00", total: "80,590,000.00", totalUsd: "$79,600,00.00", claim: "100,000.00", claimUsd: "$79,600.00", status: "Enabled" },
+                    { name: "Alice", next: "17 APR 2026", nextAmt: "59,600.00", total: "80,590,000.00", totalUsd: "$79,600,00.00", claim: "100,000.00", claimUsd: "$79,600.00", status: "Enabled" },
+                    { name: "Bob", next: "17 APR 2026", nextAmt: "59,600.00", total: "80,590,000.00", totalUsd: "$79,600,00.00", claim: "—", claimUsd: "—", status: "Disabled" }
+                ];
+
+                data.forEach(item => {
+                    document.write(`
+                        <div class="rewards-card p-10">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+                                <!-- 1. IDENTITY & NEXT UNLOCK -->
+                                <div class="flex gap-6 items-center min-w-[240px]">
+                                    <div class="w-14 h-14 rounded-full bg-v-surface border border-v-border flex items-center justify-center text-xl">🤖</div>
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-1">${item.name}</h3>
+                                        <div class="text-[10px] text-v-text-dim uppercase tracking-widest font-bold">Next Unlock: <span class="text-black">${item.next}</span></div>
+                                        <div class="font-mono text-xs text-v-text-dim mt-1">${item.nextAmt} $VIRTUAL</div>
+                                    </div>
+                                </div>
+
+                                <!-- 2. TOTAL ACCUMULATED (The Anchor) -->
+                                <div class="flex-1">
+                                    <div class="text-[10px] text-v-text-dim uppercase tracking-widest font-bold mb-2">Total Rewards Earned</div>
+                                    <div class="text-2xl font-bold mono-stat text-black">${item.total}</div>
+                                    <div class="text-xs text-v-text-dim font-medium mt-1">${item.totalUsd} Est. Value</div>
+                                </div>
+
+                                <!-- 3. THE ACTION (CLAIMABLE) -->
+                                <div class="bg-v-surface px-8 py-6 rounded-2xl border border-v-border min-w-[260px] flex justify-between items-center">
+                                    <div>
+                                        <div class="text-[10px] text-v-teal uppercase tracking-widest font-bold mb-1">Available to Claim</div>
+                                        <div class="text-xl font-bold mono-stat text-black">${item.claim}</div>
+                                        <div class="text-[10px] text-v-text-dim font-medium mt-1">${item.claimUsd}</div>
+                                    </div>
+                                    <button class="claim-btn px-6 py-2 text-xs" ${item.status === 'Disabled' ? 'disabled' : ''}>Claim</button>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-v-border py-16 px-10 md:px-24 bg-v-surface mt-20">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-mono text-v-text-dim uppercase tracking-widest font-bold">
+            <div>© 2026 AGDP.IO // VIRTUALS_PROTOCOL</div>
+            <div class="flex gap-10">
+                <a href="#" class="hover:text-black underline">Agreement</a>
+                <a href="#" class="hover:text-black underline">Terms</a>
+                <a href="#" class="hover:text-black underline">Privacy</a>
+            </div>
+            <div>Powered by <span class="text-black">Virtuals Protocol</span></div>
+        </div>
+    </footer>
+
+</body>
+</html>

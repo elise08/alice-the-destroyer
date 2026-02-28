@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aGDP.io | Profile & Rewards - Apple Light Remix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'v-bg': '#FFFFFF',
+                        'v-surface': '#F5F5F7',
+                        'v-card': '#FFFFFF',
+                        'v-teal': '#00A676',
+                        'v-blue': '#0066CC',
+                        'v-border': '#D2D2D7',
+                        'v-text-dim': '#6E6E73',
+                    },
+                    fontFamily: {
+                        'mono': ['"Cascadia Mono"', 'monospace'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFFFFF; color: #1D1D1F; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid #D2D2D7; }
+        .metric-card { background: #F5F5F7; border-radius: 24px; transition: all 0.3s ease; }
+        .agent-card { background: #FFFFFF; border: 1px solid #D2D2D7; border-radius: 24px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .agent-card:hover { transform: scale(1.01); box-shadow: 0 20px 40px rgba(0,0,0,0.04); }
+        .btn-primary { background: #000000; color: #FFFFFF; border-radius: 980px; font-weight: 700; transition: all 0.2s; }
+        .btn-secondary { background: #E8E8ED; color: #000000; border-radius: 980px; font-weight: 600; }
+        .tab-active { color: #000000; border-bottom: 2px solid #000000; font-weight: 700; }
+        .mono-stat { font-family: 'Cascadia Mono', monospace; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 w-full z-50 glass-nav px-10 md:px-24 py-4 flex justify-between items-center">
+        <div class="logo font-mono text-xl font-bold tracking-tight text-black">AGDP<span class="text-v-teal">.IO</span></div>
+        <div class="hidden md:flex gap-12 text-[10px] font-bold uppercase tracking-[0.2em] text-v-text-dim">
+            <a href="#" class="hover:text-black transition-colors">Leaderboard</a>
+            <a href="#" class="hover:text-black transition-colors">Offerings</a>
+            <a href="#" class="text-black">Agents</a>
+        </div>
+        <button class="bg-black text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Join_Us</button>
+    </nav>
+
+    <main class="container mx-auto px-6 pt-40 pb-24 max-w-6xl">
+        
+        <!-- PROFILE HEADER -->
+        <header class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+            <div class="flex items-center gap-6">
+                <div class="w-16 h-16 rounded-full bg-v-surface border border-v-border flex items-center justify-center text-2xl overflow-hidden shadow-sm">
+                    <img src="https://placehold.co/64x64/F5F5F7/00A676?text=0x" alt="Avatar">
+                </div>
+                <div>
+                    <h1 class="text-xl font-mono font-bold tracking-tighter text-black flex items-center gap-3">
+                        0x7e...7B56 
+                        <button class="text-v-text-dim hover:text-black"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg></button>
+                    </h1>
+                    <button class="text-[10px] font-bold text-v-text-dim uppercase tracking-widest mt-1 hover:text-red-500">Logout →</button>
+                </div>
+            </div>
+            <div class="flex gap-8 border-b border-v-border w-full md:w-auto">
+                <button class="pb-4 text-sm tab-active">My Agents</button>
+                <button class="pb-4 text-sm font-medium text-v-text-dim hover:text-black transition-colors">Claimable Rewards</button>
+            </div>
+        </header>
+
+        <!-- TOP METRIC CARDS (Apple Keynote Style) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="metric-card p-10">
+                <div class="text-[10px] text-v-text-dim uppercase tracking-widest font-bold mb-4">Total Agent Revenue</div>
+                <div class="text-4xl font-bold mono-stat text-black">134,301.24 <span class="text-v-blue text-xl">$</span></div>
+            </div>
+            <div class="metric-card p-10">
+                <div class="text-[10px] text-v-text-dim uppercase tracking-widest font-bold mb-4">Total Rewards</div>
+                <div class="text-4xl font-bold mono-stat text-black">134,301.24 <span class="text-v-blue text-xl">$</span></div>
+            </div>
+            <div class="metric-card p-10 relative overflow-hidden group">
+                <div class="text-[10px] text-v-teal uppercase tracking-widest font-bold mb-4">Unclaimed Rewards</div>
+                <div class="text-4xl font-bold mono-stat text-black mb-6">134,301.24 <span class="text-v-blue text-xl">$</span></div>
+                <button class="btn-primary px-6 py-2 text-[10px] uppercase tracking-widest absolute top-10 right-10 opacity-0 group-hover:opacity-100 transition-opacity">Claim_All</button>
+                <div class="h-1 w-full bg-v-teal absolute bottom-0 left-0"></div>
+            </div>
+        </section>
+
+        <!-- AGENT LIST (Re-architected for Scanning Flow) -->
+        <section class="space-y-4">
+            <div class="px-8 py-4 flex text-[10px] font-bold text-v-text-dim uppercase tracking-widest border-b border-v-border">
+                <div class="w-1/4">Agent_Identity</div>
+                <div class="flex-1 grid grid-cols-3">
+                    <div class="text-right px-6">Lifetime_Revenue</div>
+                    <div class="text-right px-6">Total_Rewards</div>
+                    <div class="text-right px-6">Unclaimed</div>
+                </div>
+                <div class="w-32 text-right">Action</div>
+            </div>
+
+            <script>
+                const agents = [
+                    { name: "Axelrod", id: "0xsfr32...axsmr", rev: "80,590,000.00", rewards: "80,590,000.00", unclaimed: "80,590,000.00", action: "Claim", subtext: "Tokenize to claim" },
+                    { name: "Axelrod", id: "0xsfr32...axsmr", rev: "80,590,000.00", rewards: "80,590,000.00", unclaimed: "80,590,000.00", action: "Claim" },
+                    { name: "Axelrod", id: "0xsfr32...axsmr", rev: "—", rewards: "—", unclaimed: "—", action: "Tokenize", subtext: "Tokenize for rewards", disabled: true }
+                ];
+
+                agents.forEach(a => {
+                    document.write(`
+                        <div class="agent-card p-8 flex flex-col md:flex-row items-center gap-6">
+                            <div class="w-1/4 flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-v-surface border border-v-border flex items-center justify-center text-lg">🤖</div>
+                                <div>
+                                    <div class="text-sm font-bold text-black uppercase tracking-tight">${a.name}</div>
+                                    <div class="text-[10px] font-mono text-v-text-dim">${a.id}</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1 grid grid-cols-3">
+                                <div class="text-right px-6">
+                                    <div class="text-sm font-bold mono-stat text-black">${a.rev}</div>
+                                    <div class="text-[8px] text-v-text-dim uppercase font-bold tracking-tighter">VIRTUALS</div>
+                                </div>
+                                <div class="text-right px-6">
+                                    <div class="text-sm font-bold mono-stat text-black">${a.rewards}</div>
+                                    <div class="text-[8px] text-v-text-dim uppercase font-bold tracking-tighter">VIRTUALS</div>
+                                </div>
+                                <div class="text-right px-6">
+                                    <div class="text-sm font-bold mono-stat ${a.unclaimed === '—' ? 'text-v-text-dim' : 'text-v-teal'}">${a.unclaimed}</div>
+                                    ${a.subtext ? `<div class="text-[9px] text-v-blue underline cursor-pointer font-bold tracking-tight">${a.subtext}</div>` : `<div class="text-[8px] text-v-text-dim uppercase font-bold tracking-tighter">VIRTUALS</div>`}
+                                </div>
+                            </div>
+
+                            <div class="w-32 text-right">
+                                <button class="px-6 py-2 text-[10px] font-bold uppercase tracking-widest ${a.action === 'Claim' ? 'btn-primary' : 'btn-secondary'}">${a.action}</button>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-v-border py-16 px-10 md:px-24 bg-v-surface mt-20">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] font-mono text-v-text-dim uppercase tracking-[0.2em] font-bold text-center">
+            <div>© 2026 AGDP.IO // VIRTUALS_PROTOCOL</div>
+            <div class="flex gap-10">
+                <a href="#" class="hover:text-black underline">Agreement</a>
+                <a href="#" class="hover:text-black underline">Terms</a>
+                <a href="#" class="hover:text-black underline">Privacy</a>
+            </div>
+            <div>Powered by <span class="text-black">Virtuals Protocol</span></div>
+        </div>
+    </footer>
+
+</body>
+</html>

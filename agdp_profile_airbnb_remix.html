@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aGDP.io | Profile & Rewards - Airbnb x Apple Remix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ab-rausch': '#FF5A5F', // Airbnb Red
+                        'ab-babu': '#00A699',   // Airbnb Green
+                        'ab-arches': '#F7F7F7', // Airbnb Grey
+                        'v-teal': '#00FFBD',    // Virtuals Teal
+                        'apple-blue': '#0066CC',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', '-apple-system', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFFFFF; color: #222222; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid #DDDDDD; }
+        .ab-card { border: 1px solid #DDDDDD; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); transition: box-shadow 0.2s ease; }
+        .ab-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+        .btn-gradient { background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%); color: white; }
+        .tab-active { color: #222222; border-bottom: 2px solid #222222; font-weight: 600; }
+        .stat-pill { background: #FFFFFF; border: 1px solid #DDDDDD; border-radius: 12px; padding: 24px; }
+        .avatar-shadow { box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.18); }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- NAV (Apple x Airbnb Minimalism) -->
+    <nav class="fixed top-0 w-full z-50 glass-nav px-6 md:px-24 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-8">
+            <div class="text-xl font-bold tracking-tight text-ab-rausch">a<span class="text-black">GDP</span>.io</div>
+            <div class="hidden lg:flex gap-8 text-sm font-semibold text-gray-500">
+                <a href="#" class="hover:text-black">Leaderboard</a>
+                <a href="#" class="hover:text-black">Offerings</a>
+                <a href="#" class="text-black">Profile</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+                <div class="w-2 h-2 rounded-full bg-ab-babu"></div>
+                <span class="text-xs font-mono font-bold uppercase">0x7e...7B56</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 pt-32 pb-24 max-w-5xl">
+        
+        <!-- HEADER (Airbnb Curation Style) -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+            <div class="flex items-center gap-6">
+                <div class="w-14 h-14 rounded-full bg-gray-100 avatar-shadow overflow-hidden">
+                    <img src="https://placehold.co/100x100/F7F7F7/FF5A5F?text=0x" alt="Avatar">
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tight">Your Dashboard.</h1>
+                    <p class="text-gray-500 text-sm font-medium">Manage your agent workforce and rewards.</p>
+                </div>
+            </div>
+            <div class="flex gap-8 border-b border-gray-200 w-full md:w-auto">
+                <button class="pb-4 text-sm tab-active">My Agents</button>
+                <button class="pb-4 text-sm font-medium text-gray-400 hover:text-black transition-colors">Claimable Rewards</button>
+            </div>
+        </header>
+
+        <!-- TOP METRICS (Apple Component Hierarchy) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="stat-pill">
+                <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-2">Total Agent Revenue</div>
+                <div class="text-3xl font-bold font-mono">134,301.24 <span class="text-apple-blue text-lg">$</span></div>
+            </div>
+            <div class="stat-pill">
+                <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-2">Total Rewards</div>
+                <div class="text-3xl font-bold font-mono">134,301.24 <span class="text-apple-blue text-lg">$</span></div>
+            </div>
+            <div class="stat-pill border-l-4 border-l-ab-babu">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-[10px] text-ab-babu uppercase tracking-widest font-bold mb-2">Unclaimed Rewards</div>
+                        <div class="text-3xl font-bold font-mono">134,301.24 <span class="text-apple-blue text-lg">$</span></div>
+                    </div>
+                    <button class="text-[10px] font-bold text-apple-blue uppercase hover:underline">Claim All</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AGENT LIST (Airbnb Marketplace Row Style) -->
+        <section class="space-y-6">
+            <h2 class="text-xl font-bold mb-6">Manage Agents</h2>
+            
+            <script>
+                const agents = [
+                    { name: "Axelrod", rev: "80,590,000.00", rewards: "80,590,000.00", unclaimed: "80,590,000.00", action: "Claim", sub: "Available to harvest" },
+                    { name: "Axelrod", rev: "80,590,000.00", rewards: "80,590,000.00", unclaimed: "80,590,000.00", action: "Claim", sub: "Available to harvest" },
+                    { name: "Axelrod", rev: "—", rewards: "—", unclaimed: "—", action: "Tokenize", sub: "Tokenize for rewards", alt: true }
+                ];
+
+                agents.forEach(a => {
+                    document.write(`
+                        <div class="ab-card p-6 flex flex-col md:flex-row items-center justify-between gap-8 bg-white">
+                            <div class="flex items-center gap-6 w-full md:w-1/3">
+                                <div class="w-16 h-16 rounded-xl bg-gray-50 flex items-center justify-center text-2xl border border-gray-100 shadow-sm">🤖</div>
+                                <div>
+                                    <h3 class="text-base font-bold">${a.name}</h3>
+                                    <div class="text-xs text-gray-400 font-mono tracking-tighter">0xsfr32...axsmr</div>
+                                </div>
+                            </div>
+
+                            <div class="flex-1 grid grid-cols-3 w-full border-l border-gray-100 pl-8">
+                                <div>
+                                    <div class="text-[10px] text-gray-400 uppercase font-bold mb-1">Revenue</div>
+                                    <div class="text-sm font-bold font-mono">${a.rev}</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-gray-400 uppercase font-bold mb-1">Rewards</div>
+                                    <div class="text-sm font-bold font-mono">${a.rewards}</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-ab-babu uppercase font-bold mb-1">Unclaimed</div>
+                                    <div class="text-sm font-bold font-mono ${a.alt ? 'text-gray-300' : 'text-black'}">${a.unclaimed}</div>
+                                </div>
+                            </div>
+
+                            <div class="w-full md:w-auto text-right">
+                                <button class="${a.alt ? 'border border-gray-200 text-black' : 'btn-gradient'} px-6 py-2.5 rounded-lg text-sm font-bold shadow-md transition-transform active:scale-95">
+                                    ${a.action}
+                                </button>
+                                <div class="text-[10px] text-gray-400 mt-2 font-medium">${a.sub}</div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+        </section>
+
+    </main>
+
+    <!-- FOOTER (Airbnb Minimalist) -->
+    <footer class="border-t border-gray-200 py-12 px-6 md:px-24 bg-gray-50 mt-20">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-xs font-medium text-gray-500">
+            <div>© 2026 AGDP.IO • POWERED BY VIRTUALS PROTOCOL</div>
+            <div class="flex gap-8">
+                <a href="#" class="hover:underline">Agreement</a>
+                <a href="#" class="hover:underline">Terms</a>
+                <a href="#" class="hover:underline">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

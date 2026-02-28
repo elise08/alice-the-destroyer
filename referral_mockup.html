@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtuals Referral - Apple Style Deconstruction</title>
+    <style>
+        :root {
+            --bg-color: #000000;
+            --card-bg: #161617;
+            --secondary-card: #1d1d1f;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-blue: #2997ff;
+            --accent-green: #00ffbd; /* Virtuals Brand Green */
+            --border-color: #424245;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 120px 0 80px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -0.022em;
+            margin: 0 0 24px 0;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin: 0 0 40px 0;
+            line-height: 1.4;
+        }
+
+        /* INVITE TOOLS */
+        .invite-tools {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .invite-code-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .code-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .code-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: monospace;
+        }
+
+        .copy-btn {
+            color: var(--accent-blue);
+            font-weight: 600;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            font-size: 16px;
+        }
+
+        .share-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            background: var(--secondary-card);
+            border: 1px solid var(--border-color);
+            padding: 10px 18px;
+            border-radius: 980px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .share-btn:hover {
+            background: var(--card-bg);
+        }
+
+        /* REWARDS ANCHOR CARD */
+        .rewards-card {
+            background-color: var(--secondary-card);
+            padding: 40px;
+            border-radius: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .metric-group {
+            text-align: left;
+        }
+
+        .rewards-value {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .sub-metric {
+            font-size: 32px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .rewards-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .claim-btn {
+            background-color: var(--accent-green);
+            color: #000;
+            width: 100%;
+            padding: 18px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .claim-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* BENTO GRID */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding: 60px 0;
+        }
+
+        .bento-card {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 32px;
+            border: 1px solid transparent;
+            transition: border 0.3s;
+        }
+
+        .bento-card:hover {
+            border-color: var(--border-color);
+        }
+
+        .bento-icon {
+            width: 48px;
+            height: 48px;
+            border: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            margin-bottom: 80px;
+        }
+
+        .bento-card h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+        }
+
+        .bento-card p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* TABLE SECTION (SIMPLIFIED) */
+        .table-section {
+            padding: 80px 0;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .table-header h2 {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .referral-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 17px;
+        }
+
+        .referral-table th {
+            text-align: left;
+            color: var(--text-secondary);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 400;
+        }
+
+        .referral-table td {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .status-pill {
+            background: #1d1d1f;
+            color: var(--accent-green);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- STAGE 1: HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Refer. Earn. Repeat.</h1>
+                <p>Get 20% of trading fees from every friend you bring to Virtuals. Forever.</p>
+                
+                <div class="invite-tools">
+                    <div class="invite-code-box">
+                        <div>
+                            <span class="code-label">My Invite Code</span><br>
+                            <span class="code-value">VRTLS-X92</span>
+                        </div>
+                        <button class="copy-btn">Copy</button>
+                    </div>
+
+                    <div class="share-row">
+                        <a href="#" class="share-btn">Twitter</a>
+                        <a href="#" class="share-btn">Telegram</a>
+                        <a href="#" class="share-btn">WhatsApp</a>
+                        <a href="#" class="share-btn">Line</a>
+                        <a href="#" class="share-btn">Share Link</a>
+                    </div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="#" class="btn-link">Learn how it works ></a>
+                </div>
+            </div>
+            
+            <div class="rewards-card">
+                <div class="metric-group">
+                    <span class="rewards-label">Claimable Commissions</span>
+                    <span class="rewards-value">450.00</span>
+                    <button class="claim-btn">Claim Commission</button>
+                </div>
+                
+                <div style="border-top: 1px solid var(--border-color); padding-top: 24px;">
+                    <div class="metric-group" style="margin-bottom: 24px;">
+                        <span class="rewards-label">Direct Referrals</span>
+                        <span class="sub-metric">24</span>
+                    </div>
+                    <div class="metric-group">
+                        <span class="rewards-label">Secondary Referrals</span>
+                        <span class="sub-metric">142</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 2: BENTO GRID -->
+        <section class="bento-grid">
+            <div class="bento-card">
+                <div class="bento-icon"></div>
+                <h3>Share.</h3>
+                <p>Your unique referral link is your power. Spread it across your network.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon"></div>
+                <h3>Trade.</h3>
+                <p>Friends join the action and start trading agents on Virtuals.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon"></div>
+                <h3>Collect.</h3>
+                <p>Sit back and watch 20% of their fees flow directly to your wallet.</p>
+            </div>
+        </section>
+
+        <!-- STAGE 3: DATA HIERARCHY -->
+        <section class="table-section">
+            <div class="table-header">
+                <h2>Your Network</h2>
+                <a href="#" class="btn-link">View full history ></a>
+            </div>
+            <table class="referral-table">
+                <thead>
+                    <tr>
+                        <th>FRIEND</th>
+                        <th>DATE JOINED</th>
+                        <th>FEES GENERATED</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0x7a...d2f</td>
+                        <td>Feb 28, 2026</td>
+                        <td>124.50 VIRTUAL</td>
+                        <td><span class="status-pill">ACTIVE</span></td>
+                    </tr>
+                    <tr>
+                        <td>0xbc...1a4</td>
+                        <td>Feb 25, 2026</td>
+                        <td>82.10 VIRTUAL</td>
+                        <td><span class="status-pill">ACTIVE</span></td>
+                    </tr>
+                    <tr>
+                        <td>0x12...ef9</td>
+                        <td>Feb 20, 2026</td>
+                        <td>243.40 VIRTUAL</td>
+                        <td><span class="status-pill">ACTIVE</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aGDP.io | Agent Rewards Center - Apple Special Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'v-bg': '#FFFFFF',
+                        'v-surface': '#F5F5F7',
+                        'v-teal': '#00A676',
+                        'v-blue': '#0066CC',
+                        'v-border': '#D2D2D7',
+                        'v-text-dim': '#86868B',
+                    },
+                    fontFamily: {
+                        'mono': ['"Cascadia Mono"', 'monospace'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFFFFF; color: #1D1D1F; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        .glass-nav { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(30px); border-bottom: 1px solid #D2D2D7; }
+        
+        /* SPECIAL EDITION ANIMATIONS */
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .floating { animation: float 6s ease-in-out infinite; }
+        
+        .bento-card { background: #FFFFFF; border: 1px solid #D2D2D7; border-radius: 32px; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .bento-card:hover { transform: scale(1.02); box-shadow: 0 40px 80px rgba(0,0,0,0.06); border-color: #00A676; }
+        
+        .claim-btn { background: #000000; color: #FFFFFF; border-radius: 980px; font-weight: 700; transition: all 0.2s; position: relative; overflow: hidden; }
+        .claim-btn:hover { background: #00A676; transform: scale(1.05); }
+        .claim-btn:active { transform: scale(0.95); }
+        .claim-btn:disabled { background: #F5F5F7; color: #D2D2D7; cursor: not-allowed; }
+
+        .tab-active { color: #000000; border-bottom: 2px solid #000000; font-weight: 700; }
+        .mono-stat { font-family: 'Cascadia Mono', monospace; }
+
+        .orb { width: 10px; height: 10px; border-radius: 50%; display: inline-block; background: #00A676; position: relative; }
+        .orb::after { content: ""; position: absolute; width: 100%; height: 100%; border-radius: 50%; background: inherit; animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+        @keyframes ping { 75%, 100% { transform: scale(3.5); opacity: 0; } }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 w-full z-50 glass-nav px-8 md:px-24 py-5 flex justify-between items-center">
+        <div class="logo font-mono text-xl font-bold tracking-tighter text-black">AGDP<span class="text-v-teal">.IO</span></div>
+        <div class="hidden md:flex gap-12 text-[10px] font-bold uppercase tracking-[0.3em] text-v-text-dim">
+            <a href="#" class="hover:text-black transition-colors">Marketplace</a>
+            <a href="#" class="hover:text-black transition-colors">Alpha_Leagues</a>
+            <a href="#" class="text-black">Rewards_Center</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-2 bg-v-surface border border-v-border px-4 py-1.5 rounded-full">
+                <span class="orb"></span>
+                <span class="font-mono text-[10px] text-black">0x7e...7B56</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 pt-48 pb-32 max-w-6xl">
+        
+        <!-- INTEGRATED HEADER (Combining both screenshot contexts) -->
+        <header class="mb-20">
+            <div class="flex gap-10 border-b border-v-border mb-16">
+                <button class="pb-4 text-sm font-bold uppercase tracking-widest tab-active">Agent Hub</button>
+                <button class="pb-4 text-sm font-medium uppercase tracking-widest text-v-text-dim hover:text-black">History</button>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-end gap-12">
+                <div>
+                    <h1 class="text-6xl font-black tracking-tighter mb-4">Command Center.</h1>
+                    <p class="text-xl text-v-text-dim max-w-2xl leading-relaxed">Manage your autonomous workforce and harvest rewards across all epochs.</p>
+                </div>
+                <!-- GLOBAL ACTION (From Claimable Context) -->
+                <div class="bg-v-surface p-8 rounded-[32px] border border-v-border text-center min-w-[320px] floating">
+                    <div class="text-[10px] font-bold uppercase tracking-widest text-v-text-dim mb-3">Total Unclaimed Rewards</div>
+                    <div class="text-4xl font-bold mono-stat mb-6">134,301.24 <span class="text-v-teal text-xl">$</span></div>
+                    <button class="claim-btn w-full py-4 text-[10px] uppercase tracking-widest shadow-lg">Harvest All</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- AGENT NODES (Remixed Content from both screens) -->
+        <section class="space-y-8">
+            <script>
+                const agents = [
+                    { name: "Axelrod", next: "03 MAY 2026", nextAmt: "59,600.00", total: "80,590,000.00", unclaimed: "100,000.00", status: "Active" },
+                    { name: "Alice", next: "17 APR 2026", nextAmt: "59,600.00", total: "80,590,000.00", unclaimed: "100,000.00", status: "Active" },
+                    { name: "Bob", next: "LOCKED", nextAmt: "—", total: "80,590,000.00", unclaimed: "—", status: "Offline" }
+                ];
+
+                agents.forEach(a => {
+                    document.write(`
+                        <div class="bento-card p-10">
+                            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                                <!-- IDENTITY -->
+                                <div class="flex gap-6 items-center w-full md:w-1/4">
+                                    <div class="w-16 h-16 rounded-2xl bg-v-surface border border-v-border flex items-center justify-center text-2xl shadow-inner">🤖</div>
+                                    <div>
+                                        <h3 class="text-lg font-bold tracking-tight">${a.name}</h3>
+                                        <div class="text-[10px] font-bold uppercase tracking-widest ${a.status === 'Active' ? 'text-v-teal' : 'text-v-text-dim'}">${a.status}</div>
+                                    </div>
+                                </div>
+
+                                <!-- DATA JOURNEY (Reading Flow Improvement) -->
+                                <div class="flex-1 grid grid-cols-2 md:grid-cols-3 gap-8 w-full border-x border-v-border px-8">
+                                    <div>
+                                        <span class="text-[9px] font-bold text-v-text-dim uppercase tracking-widest block mb-2">Lifetime Revenue</span>
+                                        <div class="text-xl font-bold mono-stat">${a.total}</div>
+                                    </div>
+                                    <div class="hidden md:block">
+                                        <span class="text-[9px] font-bold text-v-text-dim uppercase tracking-widest block mb-2">Next Unlock</span>
+                                        <div class="text-xl font-bold mono-stat text-v-blue">${a.next}</div>
+                                        <div class="text-[9px] font-bold text-v-text-dim mt-1">${a.nextAmt} $VIRTUAL</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-[9px] font-bold text-v-text-dim uppercase tracking-widest block mb-2">Unclaimed</span>
+                                        <div class="text-xl font-bold mono-stat ${a.unclaimed === '—' ? 'text-v-text-dim' : 'text-black'}">${a.unclaimed}</div>
+                                        <div class="text-[9px] font-bold text-v-teal mt-1">AVAILABLE NOW</div>
+                                    </div>
+                                </div>
+
+                                <!-- ACTION -->
+                                <div class="w-full md:w-32 text-right">
+                                    <button class="claim-btn px-10 py-3 text-[10px] uppercase tracking-widest" ${a.unclaimed === '—' ? 'disabled' : ''}>Claim</button>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-24 px-10 md:px-24 bg-v-surface border-t border-v-border">
+        <div class="container mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-12 font-mono text-[9px] font-bold uppercase tracking-[0.3em] text-v-text-dim">
+            <div class="flex items-center gap-4 text-black">
+                <span class="w-3 h-3 bg-black rounded-full"></span>
+                © 2026 AGDP.AI // PROTOCOL_COMMAND
+            </div>
+            <div class="flex gap-12">
+                <a href="#" class="hover:text-black">Agreement</a>
+                <a href="#" class="hover:text-black">Privacy</a>
+                <a href="#" class="hover:text-black">System_Status</a>
+            </div>
+            <div class="text-black font-black">POWERED_BY_VIRTUALS_PROTOCOL</div>
+        </div>
+    </footer>
+
+</body>
+</html>

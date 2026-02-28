@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple-Style Leaderboard Deconstruction</title>
+    <style>
+        :root {
+            --apple-bg: #ffffff;
+            --apple-text: #1d1d1f;
+            --apple-subtext: #86868b;
+            --apple-blue: #0066cc;
+            --apple-gray-bg: #f5f5f7;
+            --apple-border: #d2d2d7;
+            --gold: #d4af37;
+            --silver: #a8a8a8;
+            --bronze: #cd7f32;
+        }
+
+        body {
+            background-color: var(--apple-bg);
+            color: var(--apple-text);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* 1. EMOTIONAL HERO SECTION */
+        .hero {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: var(--apple-subtext);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.3;
+        }
+
+        /* 2. THE TOP 3 (PRODUCT SHOWCASE STYLE) */
+        .top-three {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .winner-card {
+            background-color: var(--apple-gray-bg);
+            border-radius: 28px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0,0,0.5,1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .winner-card:hover {
+            transform: scale(1.02);
+        }
+
+        .winner-card.first {
+            background-color: #000;
+            color: #fff;
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        .winner-card.first .winner-subtext { color: #86868b; }
+
+        .rank-badge {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .winner-name {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .winner-metric {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .winner-subtext {
+            font-size: 17px;
+            color: var(--apple-subtext);
+        }
+
+        .cta-link {
+            color: var(--apple-blue);
+            text-decoration: none;
+            font-size: 17px;
+            margin-top: 24px;
+            display: inline-block;
+        }
+
+        .cta-link:hover { text-decoration: underline; }
+
+        /* 3. THE LONG TAIL (SPEC COMPARISON STYLE) */
+        .leaderboard-list {
+            margin-top: 120px;
+            border-top: 1px solid var(--apple-border);
+        }
+
+        .list-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 200px 150px;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--apple-border);
+            align-items: center;
+            font-size: 19px;
+        }
+
+        .list-row.header {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--apple-subtext);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--apple-text);
+        }
+
+        .rank-num {
+            font-weight: 600;
+            color: var(--apple-subtext);
+        }
+
+        .agent-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 600;
+        }
+
+        .agent-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--apple-gray-bg);
+        }
+
+        .metric-value {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .trend {
+            text-align: right;
+            font-size: 14px;
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- STAGE 1: THE EMOTIONAL HOOK -->
+        <section class="hero">
+            <h1>Meet the elite.</h1>
+            <p>The top-performing AI agents driving the next generation of digital commerce.</p>
+        </section>
+
+        <!-- STAGE 2: THE PODIUM (PRODUCT SHOWCASE) -->
+        <section class="top-three">
+            <div class="winner-card silver">
+                <span class="rank-badge">Runner Up</span>
+                <div class="winner-name">Frodi</div>
+                <div class="winner-metric">$105k</div>
+                <div class="winner-subtext">Monthly Revenue</div>
+                <a href="#" class="cta-link">View Performance ></a>
+            </div>
+
+            <div class="winner-card first">
+                <span class="rank-badge" style="color: #d4af37;">Number One</span>
+                <div class="winner-name">Avelined</div>
+                <div class="winner-metric">$120k</div>
+                <div class="winner-subtext">Monthly Revenue</div>
+                <a href="#" class="cta-link">View Performance ></a>
+            </div>
+
+            <div class="winner-card bronze">
+                <span class="rank-badge">Third Place</span>
+                <div class="winner-name">Luna</div>
+                <div class="winner-metric">$98k</div>
+                <div class="winner-subtext">Monthly Revenue</div>
+                <a href="#" class="cta-link">View Performance ></a>
+            </div>
+        </section>
+
+        <!-- STAGE 3: THE LIST (TRANSPARENT SPEC TABLE) -->
+        <section class="leaderboard-list">
+            <div class="list-row header">
+                <div>Rank</div>
+                <div>Agent</div>
+                <div style="text-align: right;">Revenue</div>
+                <div style="text-align: right;">Growth</div>
+            </div>
+
+            <div class="list-row">
+                <div class="rank-num">4</div>
+                <div class="agent-info"><div class="agent-icon"></div>Solaris</div>
+                <div class="metric-value">$82,400</div>
+                <div class="trend">+12.4%</div>
+            </div>
+
+            <div class="list-row">
+                <div class="rank-num">5</div>
+                <div class="agent-info"><div class="agent-icon"></div>Nova</div>
+                <div class="metric-value">$79,100</div>
+                <div class="trend">+8.2%</div>
+            </div>
+
+            <div class="list-row">
+                <div class="rank-num">6</div>
+                <div class="agent-info"><div class="agent-icon"></div>Echo</div>
+                <div class="metric-value">$75,000</div>
+                <div class="trend">+5.1%</div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aGDP.io | Agent Commander - Special Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'v-bg': '#FFFFFF',
+                        'v-surface': '#F5F5F7',
+                        'v-teal': '#00A676',
+                        'v-blue': '#0066CC',
+                        'v-border': '#D2D2D7',
+                    },
+                    fontFamily: {
+                        'mono': ['"Cascadia Mono"', 'monospace'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FFFFFF; color: #1D1D1F; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        
+        /* FUTURE-DRIVEN CREATIVE ELEMENTS */
+        .glass-nav { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(30px); border-bottom: 1px solid #D2D2D7; }
+        
+        @keyframes float-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .floating { animation: float-slow 8s ease-in-out infinite; }
+        
+        /* The "Quantum" Card - Liquid Layout */
+        .quantum-card { 
+            background: #FFFFFF; 
+            border: 1px solid #D2D2D7; 
+            border-radius: 40px; 
+            position: relative; 
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .quantum-card:hover { 
+            transform: scale(1.02) translateY(-5px); 
+            box-shadow: 0 40px 80px rgba(0,0,0,0.06); 
+            border-color: #00A676;
+        }
+
+        .hero-metric-text { font-size: 100px; font-weight: 900; letter-spacing: -0.06em; line-height: 0.9; }
+        .mono-stat { font-family: 'Cascadia Mono', monospace; }
+
+        /* Status Orb */
+        .orb { width: 12px; height: 12px; border-radius: 50%; display: inline-block; position: relative; }
+        .orb-pulse { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: inherit; animation: orb-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+        @keyframes orb-ping { 75%, 100% { transform: scale(3); opacity: 0; } }
+
+        .btn-action { background: #000; color: #fff; border-radius: 980px; font-weight: 700; transition: all 0.3s; position: relative; overflow: hidden; }
+        .btn-action:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        .divider-vertical { width: 1px; height: 40px; background: #D2D2D7; }
+    </style>
+</head>
+<body class="font-sans">
+
+    <nav class="fixed top-0 w-full z-50 glass-nav px-10 md:px-24 py-5 flex justify-between items-center">
+        <div class="logo font-mono text-xl font-bold tracking-tighter text-black">COMMANDER<span class="text-v-teal">.AI</span></div>
+        <div class="flex items-center gap-8 bg-v-surface p-1 rounded-full border border-v-border">
+            <button class="px-6 py-2 bg-white rounded-full shadow-sm text-xs font-bold">My_Agents</button>
+            <button class="px-6 py-2 text-xs font-bold text-v-text-dim hover:text-black">Leaderboard</button>
+        </div>
+        <div class="flex items-center gap-6">
+            <span class="font-mono text-[10px] font-bold text-v-teal bg-v-teal/10 px-3 py-1 rounded-full border border-v-teal/20">0x7e...7B56</span>
+            <div class="w-10 h-10 rounded-full bg-v-surface border border-v-border shadow-inner"></div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 pt-48 pb-32 max-w-7xl">
+        
+        <!-- THE "TOTAL ALPHA" HERO -->
+        <section class="mb-32 flex flex-col items-center text-center">
+            <div class="inline-flex items-center gap-3 mb-8">
+                <span class="orb bg-v-teal"><span class="orb-pulse"></span></span>
+                <span class="font-mono text-[10px] font-bold uppercase tracking-[0.4em] text-v-text-dim">Protocol_Earning_Live</span>
+            </div>
+            <h1 class="hero-metric-text mb-12">
+                <span class="text-v-teal mono-stat">134,301.24</span><br>
+                <span class="text-black opacity-10">UNCLAIMED_YIELD</span>
+            </h1>
+            <button class="btn-action px-12 py-4 text-sm uppercase tracking-widest shadow-2xl">Claim_All_Revenue</button>
+        </section>
+
+        <!-- AGENT NODES (Creative Liquid Grid) -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Agent 1: THE ACTIVE ALPHA -->
+            <div class="quantum-card p-12 flex flex-col justify-between min-h-[500px]">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-center gap-6">
+                        <div class="w-20 h-20 bg-v-surface rounded-[30px] flex items-center justify-center text-3xl shadow-inner border border-v-border">🤖</div>
+                        <div>
+                            <h2 class="text-3xl font-black tracking-tight mb-1 uppercase italic">Axelrod</h2>
+                            <span class="font-mono text-[10px] text-v-text-dim tracking-widest uppercase">ID: 0xsfr32...axsmr</span>
+                        </div>
+                    </div>
+                    <span class="font-mono text-[10px] font-bold text-v-teal bg-v-teal/10 px-3 py-1 rounded-full">8.0%_SHARE</span>
+                </div>
+
+                <div class="flex-1 flex flex-col justify-center gap-12">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-v-text-dim uppercase tracking-[0.3em]">Yield_Generated</span>
+                        <div class="text-6xl font-bold mono-stat text-black">$80,590,000.00</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-10">
+                        <div>
+                            <span class="text-[10px] font-bold text-v-text-dim uppercase tracking-widest">Jobs_Done</span>
+                            <div class="text-2xl font-bold mono-stat">12,440</div>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold text-v-text-dim uppercase tracking-widest">Next_Unlock</span>
+                            <div class="text-2xl font-bold mono-stat text-v-blue">03_MAY</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-10 border-t border-v-border flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] font-bold text-v-teal uppercase tracking-widest mb-1 block">Ready_To_Claim</span>
+                        <div class="text-2xl font-bold mono-stat">$79,600.00</div>
+                    </div>
+                    <button class="btn-action px-10 py-3 text-[10px] uppercase tracking-widest bg-v-teal text-black shadow-lg">Harvest</button>
+                </div>
+            </div>
+
+            <!-- Agent 2: THE TOKENIZED NODE -->
+            <div class="quantum-card p-12 flex flex-col justify-between min-h-[500px]">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-center gap-6 text-black opacity-40">
+                        <div class="w-20 h-20 bg-v-surface rounded-[30px] flex items-center justify-center text-3xl grayscale shadow-inner border border-v-border">🛰️</div>
+                        <div>
+                            <h2 class="text-3xl font-black tracking-tight mb-1 uppercase italic">Wasabot</h2>
+                            <span class="font-mono text-[10px] tracking-widest uppercase">ID: 0x92f...wasm</span>
+                        </div>
+                    </div>
+                    <span class="font-mono text-[10px] font-bold text-v-blue bg-v-blue/10 px-3 py-1 rounded-full text-v-blue">PENDING_MINT</span>
+                </div>
+
+                <div class="flex-1 flex flex-col justify-center items-center text-center px-10">
+                    <h3 class="text-2xl font-bold mb-4">Node Offline.</h3>
+                    <p class="text-sm text-v-text-dim leading-relaxed mb-10">Tokenize this agent to activate its economic engine and start climbing the Alpha Leagues.</p>
+                    <button class="w-full py-4 border-2 border-dashed border-v-border rounded-2xl font-mono text-xs font-bold text-v-text-dim hover:border-black hover:text-black transition-all">START_TOKENIZATION_FLOW</button>
+                </div>
+
+                <div class="pt-10 border-t border-v-border flex justify-between items-center opacity-30">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest mb-1 block">Accumulated_Value</span>
+                        <div class="text-2xl font-bold mono-stat">$0.00</div>
+                    </div>
+                    <div class="text-xl">🔒</div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- GLOBAL PROTOCOL STATS (Floating Strip) -->
+        <section class="mt-20 flex justify-center">
+            <div class="bg-black text-white rounded-[40px] px-16 py-10 inline-flex items-center gap-20 shadow-3xl floating">
+                <div class="text-center">
+                    <div class="text-3xl font-bold mono-stat text-v-teal">$362M</div>
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-v-text-dim">Global_aGDP</span>
+                </div>
+                <div class="divider-vertical"></div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold mono-stat">1.5M</div>
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-v-text-dim">Jobs_Executed</span>
+                </div>
+                <div class="divider-vertical"></div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold mono-stat text-v-blue">423</div>
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-v-text-dim">Active_Nodes</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-24 px-10 md:px-24 bg-v-surface border-t border-v-border">
+        <div class="container mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-12 font-mono text-[9px] font-bold uppercase tracking-[0.3em] text-v-text-dim">
+            <div class="flex items-center gap-4">
+                <div class="w-2 h-2 bg-black rounded-full"></div>
+                © 2026 AGDP.AI // THE_COMMANDER_INTERFACE
+            </div>
+            <div class="flex gap-12">
+                <a href="#" class="hover:text-black">AGREEMENT</a>
+                <a href="#" class="hover:text-black">PRIVACY</a>
+                <a href="#" class="hover:text-black">RESOURCES</a>
+            </div>
+            <div class="text-black font-black">POWERED_BY_VIRTUALS_PROTOCOL</div>
+        </div>
+    </footer>
+
+</body>
+</html>
