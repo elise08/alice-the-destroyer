@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alice's Design Lab | Project Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'v-bg': '#00080D',
+                        'v-surface': '#00121A',
+                        'v-teal': '#00FFBD',
+                        'v-border': '#1A2A33',
+                        'v-text-dim': '#86868B',
+                    },
+                    fontFamily: {
+                        'mono': ['"Cascadia Mono"', 'monospace'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #00080D; color: #FFFFFF; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background: rgba(0, 8, 13, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid #1A2A33; }
+        .project-card { background: #00121A; border: 1px solid #1A2A33; border-radius: 24px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .project-card:hover { border-color: #00FFBD; transform: translateY(-4px); box-shadow: 0 0 40px rgba(0, 255, 189, 0.05); }
+        .status-pill { padding: 4px 10px; border-radius: 980px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+        .mono-stat { font-family: 'Cascadia Mono', monospace; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .pulse-teal { animation: pulse 2s infinite; }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 w-full z-50 glass-nav px-10 md:px-24 py-5 flex justify-between items-center">
+        <div class="logo font-mono text-xl font-bold tracking-tight">DESIGN<span class="text-v-teal">.LAB</span></div>
+        <div class="flex items-center gap-4">
+            <span class="text-[10px] font-mono text-v-text-dim uppercase tracking-widest">Active_Session: Alice_the_Designer</span>
+            <div class="w-2 h-2 rounded-full bg-v-teal pulse-teal"></div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 pt-40 pb-24 max-w-6xl">
+        
+        <header class="mb-16">
+            <h1 class="text-6xl font-black tracking-tighter mb-4">Project Index.</h1>
+            <p class="text-xl text-v-text-dim max-w-2xl">A living directory of every design deconstruction, high-fidelity clone, and UI remix built during this session.</p>
+        </header>
+
+        <!-- PROJECT GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- MASTER LANDING -->
+            <div class="project-card p-10 flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-8">
+                        <span class="status-pill bg-v-teal/10 text-v-teal">Production Ready</span>
+                        <span class="font-mono text-[10px] text-v-text-dim uppercase">v1.2</span>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4 tracking-tight">Future Flagship Landing</h2>
+                    <p class="text-v-text-dim text-sm leading-relaxed mb-8">The ultimate synthesis of Virtuals Noir energy and Apple's sequential storytelling. Built from scratch in Future-Driven Mode.</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="agdp_future_flagship.html" class="flex-1 text-center bg-white text-black py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:opacity-90 transition-opacity">Launch Dark</a>
+                    <a href="agdp_future_light.html" class="flex-1 text-center border border-v-border text-white py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all">Launch Light</a>
+                </div>
+            </div>
+
+            <!-- THE COMMANDER -->
+            <div class="project-card p-10 flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-8">
+                        <span class="status-pill bg-v-blue/10 text-v-blue">UI Remix</span>
+                        <span class="font-mono text-[10px] text-v-text-dim uppercase">Interactive</span>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4 tracking-tight">Agent Commander Hub</h2>
+                    <p class="text-v-text-dim text-sm leading-relaxed mb-8">Re-architected user profile featuring the "Context Switch" tab system and the "Alpha Harvest" yield anchor.</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="agdp_tabbed_profile_remix.html" class="flex-1 text-center bg-white text-black py-3 rounded-full font-bold text-xs uppercase tracking-widest">Open Profile</a>
+                    <a href="agdp_integrated_rewards_remix.html" class="flex-1 text-center border border-v-border text-white py-3 rounded-full font-bold text-xs uppercase tracking-widest">Open Rewards</a>
+                </div>
+            </div>
+
+            <!-- BOUNTY MARKET -->
+            <div class="project-card p-10 flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-8">
+                        <span class="status-pill bg-white/10 text-white">Brand Studies</span>
+                        <span class="font-mono text-[10px] text-v-text-dim uppercase">Experimental</span>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4 tracking-tight">Marketplace Remix Library</h2>
+                    <p class="text-v-text-dim text-sm leading-relaxed mb-8">The aGDP Bounty board remixed across the design systems of the industry's most influential platforms.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <a href="agdp_bounty_apple_remix.html" class="text-center border border-v-border py-2 rounded-lg font-mono text-[10px] hover:border-v-teal transition-colors uppercase">Apple_Style</a>
+                    <a href="agdp_skills_remix.html" class="text-center border border-v-border py-2 rounded-lg font-mono text-[10px] hover:border-v-teal transition-colors uppercase">Skills_Style</a>
+                    <a href="agdp_pancake_remix.html" class="text-center border border-v-border py-2 rounded-lg font-mono text-[10px] hover:border-v-teal transition-colors uppercase">Pancake_Style</a>
+                    <a href="agdp_gecko_remix.html" class="text-center border border-v-border py-2 rounded-lg font-mono text-[10px] hover:border-v-teal transition-colors uppercase">Gecko_Style</a>
+                </div>
+            </div>
+
+            <!-- CORE RECONSTRUCTION -->
+            <div class="project-card p-10 flex flex-col justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-8">
+                        <span class="status-pill bg-purple-500/10 text-purple-400">Blueprint</span>
+                        <span class="font-mono text-[10px] text-v-text-dim uppercase">Archived</span>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4 tracking-tight">Production Clones</h2>
+                    <p class="text-v-text-dim text-sm leading-relaxed mb-8">The original 100% Fidelity reconstructions of the production aGDP.io dashboard and Epoch leaderboards.</p>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <a href="agdp_perfect_clone.html" class="w-full text-center border border-v-border py-3 rounded-full font-mono text-[10px] hover:text-v-teal transition-colors uppercase">agdp_production_v1.html</a>
+                    <a href="agdp_epoch2_leaderboard.html" class="w-full text-center border border-v-border py-3 rounded-full font-mono text-[10px] hover:text-v-teal transition-colors uppercase">agdp_epoch2_leaderboard.html</a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-20 px-10 md:px-24 bg-v-surface border-t border-v-border text-center">
+        <div class="container mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-12 font-mono text-[9px] font-bold uppercase tracking-[0.3em] text-v-text-dim">
+            <div>© 2026 DESIGN.LAB // ALICE_V1.4</div>
+            <div class="text-white font-black">TRACKING_ALL_ACTIVE_NODES</div>
+        </div>
+    </footer>
+
+</body>
+</html>
